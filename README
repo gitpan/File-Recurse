@@ -1,0 +1,72 @@
+# ----------------------------------------------------------------------------
+# README
+# File::Recurse
+# Version 0.11
+# Dion Almaer (dion@member.com)
+# Wed Nov 18 16:55:46 CST 1998
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# ABOUT
+# ----------------------------------------------------------------------------
+A module is used to recurse directory structures and saving the data
+into an array.
+You can give it certain regex rules (e.g. '\.gif$' will match only *.gif files)
+and you can make it check for a '.ignore_index' file in that directory
+to make it ignore.
+
+File::Recurse has pod documentation that gives a more complete overview, but
+in a nutshell:
+
+NOTE: perldoc File::Recurse to find out about the rules that you can have
+
+Here is an example program that would output all the files in directories
+starting from /tmp that have a period somewhere in the name,
+and isn't a .gif file
+
+use File::Recurse;
+
+my %files = &Recurse(['/tmp'], {match => '\.', nomatch => '\.html$'});
+
+foreach (sort keys %files) {
+   print "Dir$_\n";
+   foreach (@{ $files{$_} }) {
+    print " File: $_\n";
+   }
+}
+
+# ----------------------------------------------------------------------------
+# COMPATIBILITY
+# ----------------------------------------------------------------------------
+This module is pure Perl. It should work with any Perl5
+
+# ----------------------------------------------------------------------------
+# INSTALL
+# ----------------------------------------------------------------------------
+To build and test this distribution, type:
+
+  perl Makefile.PL
+  make test
+
+If the tests pass, install it:
+
+  make install
+
+# ----------------------------------------------------------------------------
+# PROBLEMS/BUG REPORTS
+# ----------------------------------------------------------------------------
+Please send any reports of problems or bugs to dion@member.com. I wouldn't
+mind a short note to know that you're using this, just so I can justify its
+continued development to my manager :-). (In seriousness, a rough idea of
+how many others are using this will help promote its upkeep.)
+
+# ----------------------------------------------------------------------------
+# CREDITS AND LICENSES
+# ----------------------------------------------------------------------------
+This package is copyright © 1998 by Dion Almer (dion@member.com) and may be
+distributed under terms of the Artistic License used to cover Perl itself.
+See the file Artistic in the distribution of Perl 5.002 or later for details
+of copy and distribution terms.
+
+This is based on the File::Find module
+# ----------------------------------------------------------------------------

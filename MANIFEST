@@ -1,0 +1,10 @@
+# ----------------------------------------------------------------------------
+# MANIFEST
+# Wed Nov 18 16:55:46 CST 1998
+# ----------------------------------------------------------------------------
+COPYING          - Holds the copyright info
+Recurse.pm       - The perl module itself
+Makefile.PL      - Makefile builder
+README 		 - README info
+test.pl		 - test program
+# ----------------------------------------------------------------------------
